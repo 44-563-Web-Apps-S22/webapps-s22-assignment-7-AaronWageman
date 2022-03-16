@@ -39,6 +39,9 @@
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
 		<button onclick="makeNewDiv()">Add value</button>
+
+	<button type="button" class="btn btn-danger" id="button1" onclick="fetchItem()">Fetch</button>
+	<button type="button" class="btn btn-warning" id="button2" onclick="zap()">Zap values</button>
 	
 	
 </body>
@@ -53,7 +56,24 @@
 		/* add it to the container */
 		let container = document.getElementById('target')
 		container.insertBefore(element, container.firstChild)
-		
+	}
+
+	function fetchItem(){
+		let queueItems = document.getElementsByClassName("queue")
+		if(queueItems.length > 0){
+			queueItems[queueItems.length - 1].remove()
+		}
+	}
+
+	function zap(){
+		let queueItems2 = document.getElementsByClassName("queue")
+		let inputValue = document.getElementById("res1").value
+		for(let i = 0; i < queueItems2.length; i++){
+			if(queueItems2[i].innerHTML == inputValue){
+				console.log(queueItems2[i])
+				queueItems2[i].remove()
+			}
+		}
 	}
 </script>
 </html>	
