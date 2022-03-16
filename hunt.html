@@ -62,10 +62,12 @@
     <div class="col-sm-2"><img id="25" src="bush.jpg" onclick="check(24)" alt="picture of a bush" width="64" height="64" class="img-fluid"></div>
 </div>
 
+<button type="button" class="btn btn-success" id="abc" onclick="newGame()">New Game</button>
+
 <script>
     ids = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]
     shakeCount = 0
-    birdLocation = 18
+    birdLocation = Math.floor(Math.random() * 25)
     score = 0
     function check(position){
         idString = ids[position]
@@ -82,6 +84,19 @@
         message = "Location score is: " + score
         document.getElementById("score").innerHTML = message
 
+    }
+
+    function newGame(){
+        birdLocation = Math.floor(Math.random() * 25)
+        shakeCount = 0
+        shakeMessage = "Number of shakes is: " + shakeCount
+        score = 0
+        scoreMessage = "Location score is: " + score
+        document.getElementById("shakes").innerHTML = shakeMessage
+        document.getElementById("score").innerHTML = scoreMessage
+        for(let x = 1; x < 26; x++){
+            document.getElementById(x).src = "bush.jpg"
+        }
     }
 
     function LocationScore(pos1, pos2){
