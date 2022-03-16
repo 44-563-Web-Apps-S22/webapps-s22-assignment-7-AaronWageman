@@ -42,6 +42,7 @@
 
 	<button type="button" class="btn btn-danger" id="button1" onclick="fetchItem()">Fetch</button>
 	<button type="button" class="btn btn-warning" id="button2" onclick="zap()">Zap values</button>
+	<button type="button" class="btn btn-success" id="button3" onclick="unique()">Unique</button>
 	
 	
 </body>
@@ -78,6 +79,26 @@
 			queueItems2[(n-1) - count].remove()
 			count++
 
+		}
+	}
+
+	function unique(){
+		let queueItems3 = document.getElementsByClassName("queue")
+		let list2 = []
+		let counter = []
+		for(let a = 0; a < queueItems3.length; a++){
+			if(list2.indexOf(queueItems3[a].innerHTML) == -1){
+				list2.push(queueItems3[a].innerHTML)
+				counter.push(a)
+			}
+		}
+		for(let e = 0; e < counter.length; e++){
+			for(let ee = queueItems3.length - 1; ee > counter[e]; ee--){
+				if(queueItems3[ee].innerHTML == list2[e]){
+					queueItems3[ee].remove()
+				}
+				
+			}
 		}
 	}
 </script>
