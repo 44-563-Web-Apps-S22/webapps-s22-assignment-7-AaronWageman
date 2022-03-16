@@ -85,8 +85,6 @@
     }
 
     function LocationScore(pos1, pos2){
-        //use modulo by 5 to determine column
-        //modulo and then subtract to determine if the same row determine which column value is greater then subtract 
         score = 0
         if(pos1 % 5 == pos2 % 5){
             score += 1
