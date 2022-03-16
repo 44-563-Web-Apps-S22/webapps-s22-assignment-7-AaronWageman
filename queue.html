@@ -57,22 +57,27 @@
 		let container = document.getElementById('target')
 		container.insertBefore(element, container.firstChild)
 	}
-
 	function fetchItem(){
 		let queueItems = document.getElementsByClassName("queue")
 		if(queueItems.length > 0){
 			queueItems[queueItems.length - 1].remove()
 		}
 	}
-
 	function zap(){
 		let queueItems2 = document.getElementsByClassName("queue")
 		let inputValue = document.getElementById("res1").value
+		let list = []
 		for(let i = 0; i < queueItems2.length; i++){
 			if(queueItems2[i].innerHTML == inputValue){
 				console.log(queueItems2[i])
-				queueItems2[i].remove()
+				list.push(i)
 			}
+		}
+		for(let n = list.length; 0 <= n; n--){
+			count = 0
+			queueItems2[(n-1) - count].remove()
+			count++
+
 		}
 	}
 </script>
